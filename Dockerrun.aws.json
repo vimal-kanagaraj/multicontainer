@@ -1,0 +1,33 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions":[
+         {
+             "name":"client",
+             "image": "vimalkanagaraj/mutlti-client",
+             "hostname":"client",
+             "essential":false
+         },
+         {
+            "name":"server",
+            "image": "vimalkanagaraj/mutlti-server",
+            "hostname":"api",
+            "essential":false
+        },
+        {
+            "name":"worker",
+            "image": "vimalkanagaraj/mutlti-worker",
+            "hostname":"worker",
+            "essential":false
+        },
+        {
+            "name":"nginx",
+            "image": "vimalkanagaraj/mutlti-nginx",
+            "essential":true,
+            "portMappings":[{
+                "hostPort":80,
+                "containerPort":80
+            }],
+            "links":["client","server"]
+        }
+    ]
+}
