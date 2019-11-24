@@ -22,14 +22,11 @@ after_success:
   - docker push vimalkanagaraj/multi-worker 
 
 deploy:
-  #edge: true
-  #access_key_id: $AWS_ACCESS_KEY
-  #secret_access_key: $AWS_SECRET_KEY
   provider: elasticbeanstalk
   region: "us-east-2"
   app: "multi-container"
   env: "MultiContainer-env " 
-  bucket_name: "elasticbeanstalk-us-east-2-086137520752
+  bucket_name: "elasticbeanstalk-us-east-2-086137520752"
   bucket_path: "multi-container"
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key: $AWS_SECRET_KEY
